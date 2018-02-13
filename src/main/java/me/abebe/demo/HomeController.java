@@ -28,26 +28,26 @@ public class HomeController {
      if(result.hasErrors()){
          return "registration";
      }
-     else {
-         userService.saveUser(user);
-         model.addAttribute("message", "User account successfully created");
-     }
+     userService.saveUser(user);
+     model.addAttribute("message", "User account successfully created");
+
+
      return "index";
     }
-    /*@RequestMapping("/")
+    @RequestMapping("/")
     public String index(){
         return "index";
-    }*/
+    }
     @RequestMapping("/login")
     public String login(){
         return "login";
     }
-   /* @RequestMapping("/admin")
+    @RequestMapping("/admin")
     public String admin(){
         return "admin";
     }
     @RequestMapping("/secure")
     public String secure(){
         return "secure";
-    }*/
+    }
 }

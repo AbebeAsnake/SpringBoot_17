@@ -42,23 +42,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
               .httpBasic();*/
     http
             .authorizeRequests()
-            .antMatchers("/","/h2-console/**","/register")
+            .antMatchers("/","/css/**","/js/**")
             .permitAll()
             .anyRequest()
             .authenticated()
             .and()
-            .formLogin().loginPage("/login").permitAll()
-            .and()
-            .logout()
-            .logoutRequestMatcher(
-                    new AntPathRequestMatcher("/logout"))
-            .logoutSuccessUrl("/login").permitAll().permitAll()
+            .formLogin()
             .and()
             .httpBasic();
-    http
-            .csrf().disable();
-    http
-            .headers().frameOptions().disable();
 
 
   }
